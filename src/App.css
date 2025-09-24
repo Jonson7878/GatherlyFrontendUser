@@ -1,0 +1,445 @@
+/* HomePage.css */
+
+body, html {
+  font-family: Barlow, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.company-logo {
+  width: 220px;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.home-container {
+  text-align: center;
+  padding-top: 50px;
+}
+
+/* Header Styles */
+.home-header {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.sign-in-button {
+  background-color: transparent;
+  border: 2px solid #5e35b1;
+  color: #5e35b1;
+  margin-top: 55px;
+  margin-right: 20px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.sign-in-button:hover {
+  background-color: #5e35b1;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Main Content Styles */
+.home-main {
+  margin-top: 180px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.highlight {
+  color: #5e35b1;
+}
+
+.home-container p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-content {
+  margin-top: 100px;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.sidebar h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.sidebar p {
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.sidebar-image {
+  margin-top: 40px;
+  max-width: 100%;
+  margin-left: 0;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.form-container p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.57143;
+  color: #574d68;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+input {
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+/* Media-friendly images/icons */
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+select:focus {
+  border-color: #000;
+}
+
+a {
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.error-input {
+  border: 2px solid #e53e3e;
+  background-color: #fff5f5; 
+}
+
+.error-text {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.backend-error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* tab style */
+.MuiTabs-root {
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.MuiTab-root {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a4a4a;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.Mui-selected {
+  background-color: #00796b;
+  color: #fff; 
+}
+
+
+.MuiTab-root:hover {
+  background-color: #ddd;
+}
+
+
+.MuiTabs-indicator {
+  background-color: #00796b;
+  height: 4px;
+}
+
+.MuiBox-root {
+ 
+  background-color: #fff;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  
+}
+
+/* add user */
+.add-user-container {
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-user-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-user-form label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.add-user-form input,
+.add-user-form select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.add-user-form input.error-input,
+.add-user-form select.error-input {
+  border-color: #e74c3c;
+}
+
+.add-user-form .error-text {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* .add-user-form button {
+  padding: 10px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ 
+.add-user-form button:hover {
+  background-color: #004d40;
+} */
+
+.add-user-form select {
+  font-size: 14px;
+}
+
+/* task style  */
+.create-task-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.create-task-header {
+  margin-bottom: 20px;
+}
+
+.create-task-header h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+.create-task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+input, textarea, select {
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: -6px;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #00796b;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-height: 44px;
+}
+
+button:hover {
+  background-color: #004d40;
+}
+
+/* update-task */
+
+.task-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 28px;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+input, textarea {
+  width: 95%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Improve logo behavior on smaller devices */
+@media (max-width: 768px) {
+  .company-logo {
+    width: 140px;
+    top: 12px;
+    left: 12px;
+  }
+  .home-main {
+    margin-top: 140px;
+  }
+}
+
+/* Optional tighter layout on portrait tablets/phones */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .form-container, .sidebar {
+    padding: 24px;
+  }
+}
