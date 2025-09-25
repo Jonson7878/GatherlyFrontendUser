@@ -267,7 +267,7 @@ export default function UpdateEventStepper() {
         formData.append("view", eventData.view);
         if (eventData.image) formData.append("image", eventData.image);
 
-        const response = await axios.put(`http://localhost:4000/api/events/update/basic/${eventId}`, formData, {
+        const response = await axios.put(`${API_BASE}/api/events/update/basic/${eventId}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
@@ -290,7 +290,7 @@ export default function UpdateEventStepper() {
     try {
         const token = localStorage.getItem("token");
         const response = await axios.put(
-            `http://localhost:4000/api/events/update/details/${eventId}`,
+            `${API_BASE}/api/events/update/details/${eventId}`,
             {
                 quantity: eventData.quantity,
                 dateTime: eventData.dateTime,
@@ -319,7 +319,7 @@ const handleUpdateTickets = async () => {
     try {
         const token = localStorage.getItem("token");
         const response = await axios.put(
-            `http://localhost:4000/api/events/update/tickets/${eventId}`,
+            `${API_BASE}/api/events/update/tickets/${eventId}`,
             { tickets: eventData.tickets },
             {
                 headers: {
@@ -353,7 +353,7 @@ const handleSaveEditedTicket = async () => {
         const ticketId = eventData.tickets[editIndex]._id;
 
         const response = await axios.put(
-            `http://localhost:4000/api/events/${eventId}/tickets/${ticketId}`,
+            `${API_BASE}/api/events/${eventId}/tickets/${ticketId}`,
             ticketData,
             {
                 headers: { Authorization: `Bearer ${token}` },
@@ -383,7 +383,7 @@ const handleDeleteTicket = async (index) => {
         const ticketId = eventData.tickets[index]._id;
 
         const response = await axios.delete(
-            `http://localhost:4000/api/events/${eventId}/tickets/${ticketId}`,
+            `${API_BASE}/api/events/${eventId}/tickets/${ticketId}`,
             {
                 headers: { Authorization: `Bearer ${token}` },
             }
@@ -440,7 +440,7 @@ const handleUpdateFaqs = async () => {
     try {
         const token = localStorage.getItem("token");
         const response = await axios.put(
-            `http://localhost:4000/api/events/update/faqs/${eventId}`,
+            `${API_BASE}/api/events/update/faqs/${eventId}`,
             {
                 faqs: eventData.faqs,
             },
@@ -474,7 +474,7 @@ const handleSaveEditedFeqs = async () => {
         };
 
         const res = await axios.put(
-            `http://localhost:4000/api/events/${eventId}/faqs/${faqId}`,
+            `${API_BASE}/api/events/${eventId}/faqs/${faqId}`,
             editedFaq,
             {
                 headers: {
@@ -513,7 +513,7 @@ const handleDeleteFaq = async (index) => {
         const faqId = eventData.faqs[index]._id;
 
         const response = await axios.delete(
-            `http://localhost:4000/api/events/${eventId}/faqs/${faqId}`,
+            `${API_BASE}/api/events/${eventId}/faqs/${faqId}`,
             {
                 headers: { Authorization: `Bearer ${token}` },
             }

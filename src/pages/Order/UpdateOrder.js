@@ -125,7 +125,7 @@ export default function UpdateOrder() {
         (sum,t) => sum + t.price * (t.quantity || 0),0
       )
 
-      const res = await fetch(`http://localhost:4000/api/order/update/${id}`, {
+      const res = await fetch(`${API_BASE}/api/order/update/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

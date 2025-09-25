@@ -4,6 +4,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import API_BASE from '../../config.js';
 
 function AddUser() {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ function AddUser() {
       setUserRole(decodedToken.role);
 
       axios
-        .get(`http://localhost:4000/api/company/me`, {
+        .get(`${API_BASE}/api/company/me`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -92,7 +93,7 @@ function AddUser() {
 
     try {  // eslint-disable-next-line
       const response = await axios.post(
-        "http://localhost:4000/api/user/register",
+        `${API_BASE}/api/user/register`,
         requestData,
         {
           headers: { Authorization: `Bearer ${token}` },

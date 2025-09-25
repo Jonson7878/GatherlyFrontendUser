@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { useTheme } from '@mui/material/styles';
+import API_BASE from '../../config.js';
 import './UpdateUser.css';
 
 const UpdateUserForm = () => {
@@ -54,7 +55,7 @@ const UpdateUserForm = () => {
         const fetchUserData = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`http://localhost:4000/api/managed-users/${id}`, {
+                const response = await axios.get(`${API_BASE}/api/managed-users/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -113,7 +114,7 @@ const UpdateUserForm = () => {
                 role: userData.role,
             };
 
-            const response = await axios.put(`http://localhost:4000/api/managed-users/update/${id}`, payload, {
+            const response = await axios.put(`${API_BASE}/api/managed-users/update/${id}`, payload, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

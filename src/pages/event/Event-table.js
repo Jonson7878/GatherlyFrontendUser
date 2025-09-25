@@ -20,6 +20,7 @@ import AddIcon from "@mui/icons-material/Add";
 import EventIcon from "@mui/icons-material/Event";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import API_BASE from "../../config";
 
 const EventCard = styled(Card)(({ theme }) => ({
   width: "100%",
@@ -63,7 +64,7 @@ export default function Eventlist() {
           setTimeout(() => navigate("/login"), 1500);
           return;
         }
-        const response = await fetch("http://localhost:4000/api/events", {
+        const response = await fetch(`${API_BASE}/api/events`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -341,7 +342,7 @@ export default function Eventlist() {
                           ) {
                             try {
                               const res = await fetch(
-                                `http://localhost:4000/api/events/delete/${event._id}`,
+                                `${API_BASE}/api/events/delete/${event._id}`,
                                 {
                                   method: "DELETE",
                                   headers: {

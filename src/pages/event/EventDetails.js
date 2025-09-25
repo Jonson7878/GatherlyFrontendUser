@@ -21,6 +21,7 @@ import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import MonetizationOnTwoToneIcon from "@mui/icons-material/MonetizationOnTwoTone";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import API_BASE from "../../config";
 
 export default function EventDetails() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function EventDetails() {
           return;
         }
 
-        const res = await fetch(`http://localhost:4000/api/events/${id}`, {
+        const res = await fetch(`${API_BASE}/api/events/${id}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -118,7 +119,7 @@ const handleBuyTickets = async () => {
       }),
     };
 
-    const res = await fetch("http://localhost:4000/api/order/", {
+    const res = await fetch(`${API_BASE}/api/order/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -9,6 +9,7 @@ import { deepPurple } from '@mui/material/colors';
 import { jwtDecode } from 'jwt-decode';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import API_BASE from '../../config.js';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
@@ -37,7 +38,7 @@ const UserTable = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:4000/api/managed-users/users', {
+        const response = await axios.get(`${API_BASE}/api/managed-users/users`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -101,7 +102,7 @@ const UserTable = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:4000/api/managed-users/delete/${userId}`, {
+      await axios.delete(`${API_BASE}/api/managed-users/delete/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

@@ -7,6 +7,7 @@ import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../../config';
 import '../../App.css'
 
 function CustomTabPanel(props) {
@@ -65,7 +66,7 @@ export default function BasicTabs({ formData, setFormData, errors }) {
     };
 
     try {
-      const response = await axios.post('http://localhost:4000/api/company/', companyData, {
+      const response = await axios.post(`${API_BASE}/api/company/`, companyData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -100,7 +101,7 @@ export default function BasicTabs({ formData, setFormData, errors }) {
     };
 
     try {
-      const response = await axios.post('http://localhost:4000/api/company/register', userData, {
+      const response = await axios.post(`${API_BASE}/api/company/register`, userData, {
         headers: {
           'Content-Type': 'application/json',
         },

@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import API_BASE from "../../config";
 
 const theme = createTheme({
   palette: {
@@ -247,7 +248,7 @@ export default function EventCreationStepper() {
         }
       });
 
-      const response = await axios.post("http://localhost:4000/api/events/create", formData, {
+      const response = await axios.post(`${API_BASE}/api/events/create`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -270,7 +271,7 @@ export default function EventCreationStepper() {
       const token = localStorage.getItem("token");
       const requestData = { eventId, ...eventData };
 
-      const response = await axios.put("http://localhost:4000/api/events/add-details", requestData, {
+      const response = await axios.put(`${API_BASE}/api/events/add-details`, requestData, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -292,7 +293,7 @@ export default function EventCreationStepper() {
       const token = localStorage.getItem("token");
       const requestData = { eventId, tickets: eventData.tickets };
 
-      const response = await axios.put("http://localhost:4000/api/events/add-tickets", requestData, {
+      const response = await axios.put(`${API_BASE}/api/events/add-tickets`, requestData, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -314,7 +315,7 @@ export default function EventCreationStepper() {
       const token = localStorage.getItem("token");
       const requestData = { eventId, faqs: eventData.faqs };
 
-      const response = await axios.put("http://localhost:4000/api/events/add-faqs", requestData, {
+      const response = await axios.put(`${API_BASE}/api/events/add-faqs`, requestData, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
