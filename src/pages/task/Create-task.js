@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_BASE from '../../config';
 import { jwtDecode } from "jwt-decode";
 import { Alert, Stack } from "@mui/material";
 import "../../App.css";
@@ -38,7 +39,7 @@ function CreateTask() {
             setUserRole(decodedToken.role);
 
             axios
-                .get("http://localhost:4000/api/managed-users/users", {
+                .get(`${API_BASE}/api/managed-users/users`, {
                     headers: { Authorization: `Bearer ${token}` },
                 })
                 .then((response) => {
@@ -105,7 +106,7 @@ function CreateTask() {
 
         try {
             const response = await axios.post(
-                "http://localhost:4000/api/tasks/createtask",
+                `${API_BASE}/api/tasks/createtask`,
                 submitData,
                 {
                     headers: { Authorization: `Bearer ${token}` },

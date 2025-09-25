@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Card, Typography, Divider, Stack, Button, Alert, CircularProgress } from "@mui/material";
 import { createPaymentOrder, verifyPayment } from "../../api/paymentApi";
+import API_BASE from '../../config';
 
 function loadRazorpayScript() {
   return new Promise((resolve) => {
@@ -27,7 +28,7 @@ export default function PaymentPage() {
     const fetchOrder = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await fetch(`http://localhost:4000/api/order/${id}`, {
+  const res = await fetch(`${API_BASE}/api/order/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();

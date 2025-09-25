@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../config';
 import { useUser } from '../components/UserContext';
 import CommonSidebar from '../components/CommonSidebar';
 import Alert from '@mui/material/Alert';
@@ -48,7 +49,7 @@ const Login = () => {
     if (!validate()) return;
 
     try {
-      const response = await axios.post('http://localhost:4000/api/user/login', form);
+    const response = await axios.post(`${API_BASE}/api/user/login`, form);
 
       if (response?.data?.status === 'awaiting_2fa') {
         setAlert({ message: 'Enter your authentication code', severity: 'info' });

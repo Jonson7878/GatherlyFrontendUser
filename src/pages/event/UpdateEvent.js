@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef  } from "react";
 import axios from "axios";
+import API_BASE from '../../config';
 import { useNavigate, useParams } from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
 import {
@@ -101,7 +102,7 @@ export default function UpdateEventStepper() {
     const fetchEvent = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get(`http://localhost:4000/api/events/${eventId}`, {
+            const res = await axios.get(`${API_BASE}/api/events/${eventId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

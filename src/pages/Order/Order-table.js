@@ -21,6 +21,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
+import API_BASE from '../../config';
 import { useNavigate } from "react-router-dom";
 
 const OrdersList = () => {
@@ -46,7 +47,7 @@ const OrdersList = () => {
       }
 
       try {
-        const response = await axios.get("http://localhost:4000/api/order/history", {
+  const response = await axios.get(`${API_BASE}/api/order/history`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -84,7 +85,7 @@ const OrdersList = () => {
 
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:4000/api/order/delete/${orderId}`, {
+  await axios.delete(`${API_BASE}/api/order/delete/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

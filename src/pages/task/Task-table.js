@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../../config';
 import { jwtDecode } from 'jwt-decode';
 import { Alert, Stack, Button, Typography, Box } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -43,7 +44,7 @@ const TaskTable = () => {
             if (startDate) queryParams.append('startDate', startDate);
             if (cid) queryParams.append('companyId', cid);
 
-            const response = await axios.get(`http://localhost:4000/api/tasks/?${queryParams.toString()}`, {
+            const response = await axios.get(`${API_BASE}/api/tasks/?${queryParams.toString()}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -64,7 +65,7 @@ const TaskTable = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:4000/api/tasks/deletetask/${taskId}`, {
+            await axios.delete(`${API_BASE}/api/tasks/deletetask/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setAlert({ message: 'Task deleted successfully!', severity: 'success' });
@@ -81,7 +82,7 @@ const TaskTable = () => {
         try {
             const token = localStorage.getItem('token');
             await axios.patch(
-                `http://localhost:4000/api/tasks/completetask/${taskId}`,
+                `${API_BASE}/api/tasks/completetask/${taskId}`,
                 { isCompleted },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -99,7 +100,7 @@ const TaskTable = () => {
         try {
             const token = localStorage.getItem('token');
             await axios.patch(
-                `http://localhost:4000/api/tasks/verifytask/${taskId}`,
+                `${API_BASE}/api/tasks/verifytask/${taskId}`,
                 isVerified ? { isVerified } : { isVerified, isCompleted: false },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

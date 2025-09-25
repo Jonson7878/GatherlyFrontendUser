@@ -1,6 +1,7 @@
 import axios from 'axios';
+import API_BASE from '../config';
 
-const API_URL = 'http://localhost:4000/api/company';
+const API_URL = `${API_BASE}/api/company`;
 
 export const signupUser = async (userData) => {
   try {
@@ -36,7 +37,7 @@ export const createCompany = async (companyData) => {
   }
 };
 
-const USER_API = 'http://localhost:4000/api/user';
+const USER_API = `${API_BASE}/api/user`;
 
 export const loginApi = async (payload) => {
   const res = await axios.post(`${USER_API}/login`, payload);

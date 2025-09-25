@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import PromoCodeField from "./PromoCodeField";
+import API_BASE from '../../config';
 
 export default function Checkout() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export default function Checkout() {
     const fetchOrder = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await fetch(`http://localhost:4000/api/order/${id}`, {
+  const res = await fetch(`${API_BASE}/api/order/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

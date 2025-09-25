@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../config';
 import ForgotPasswordSidebar from '../components/ForgotPasswordSidebar';
 import '../App.css';
 import { Alert,Stack } from '@mui/material';
@@ -67,7 +68,7 @@ const ResetPassword = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(`http://localhost:4000/api/user/resetpassword/${token}`, {
+  const response = await axios.post(`${API_BASE}/api/user/resetpassword/${token}`, {
         newPassword: password,
         confirmNewPassword: confirmPassword,
       });

@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import RemoveRoundedIcon from "@mui/icons-material/RemoveRounded";
 import LocalOfferRoundedIcon from "@mui/icons-material/LocalOfferRounded";
+import API_BASE from '../../config';
 
 export default function PromoCodeField({ companyId, originalAmount = 0, orderId, onApply, disabled }) {  // eslint-disable-next-line 
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ export default function PromoCodeField({ companyId, originalAmount = 0, orderId,
     setLoading(true);
     setError("");
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:4000/api/offer/company`, {
+  fetch(`${API_BASE}/api/offer/company`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -72,7 +73,7 @@ export default function PromoCodeField({ companyId, originalAmount = 0, orderId,
       setApplyLoading(true);
       setError("");
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:4000/api/offer/apply", {
+  const res = await fetch(`${API_BASE}/api/offer/apply`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

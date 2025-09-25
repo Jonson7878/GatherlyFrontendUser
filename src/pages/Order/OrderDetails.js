@@ -14,6 +14,7 @@ import {
 import EventIcon from "@mui/icons-material/Event";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import API_BASE from '../../config';
 
 export default function OrderDetails() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ export default function OrderDetails() {
     const fetchOrder = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await fetch(`http://localhost:4000/api/order/${id}`, {
+  const res = await fetch(`${API_BASE}/api/order/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

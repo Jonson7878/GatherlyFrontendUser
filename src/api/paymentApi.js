@@ -1,6 +1,7 @@
 import axios from 'axios';
+import API_BASE from '../config';
 
-const BASE_URL = 'http://localhost:4000/api/payment';
+const BASE_URL = `${API_BASE}/api/payment`;
 
 const authHeaders = () => {
   const token = localStorage.getItem('token');

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import API_BASE from '../config';
 
 const UserContext = createContext();
 
@@ -19,7 +20,7 @@ export const UserProvider = ({ children }) => {
     if (token && !user) {
       console.log("Token found. Verifying user...");
       axios
-        .get("http://localhost:4000/api/user/verify-user", {
+        .get(`${API_BASE}/api/user/verify-user`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {

@@ -15,6 +15,7 @@ import {
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import API_BASE from '../../config';
 
 export default function UpdateOrder() {
   const { id } = useParams();
@@ -36,7 +37,7 @@ export default function UpdateOrder() {
         setTimeout(() => navigate('/login'),1500);
         return;
       }
-        const res = await fetch(`http://localhost:4000/api/order/${id}`, {
+  const res = await fetch(`${API_BASE}/api/order/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

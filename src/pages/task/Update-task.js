@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_BASE from '../../config';
 import { Alert, Stack } from "@mui/material";
 import { jwtDecode } from "jwt-decode";
 import '../../App.css';
@@ -55,7 +56,7 @@ function UpdateTask() {
             setLoading(true);
             const token = localStorage.getItem("token");
 
-            const response = await axios.get(`http://localhost:4000/api/tasks/${id}`, {
+            const response = await axios.get(`${API_BASE}/api/tasks/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -105,7 +106,7 @@ function UpdateTask() {
             }
 
             const response = await axios.put(
-                `http://localhost:4000/api/tasks/updatetask/${id}`,
+                `${API_BASE}/api/tasks/updatetask/${id}`,
                 task,
                 { headers: { Authorization: `Bearer ${token}` } }
             );

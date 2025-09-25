@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE from '../config';
 import ForgotPasswordSidebar from '../components/ForgotPasswordSidebar';
 import '../App.css';
 import { Alert, Stack } from '@mui/material';
@@ -33,7 +34,7 @@ const ForgotPassword = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:4000/api/user/resetlink', { email });
+  const response = await axios.post(`${API_BASE}/api/user/resetlink`, { email });
       setAlert({message:response.data.message || 'Reset link sent successfully', severity:"success"})
       setTimeout(()=>
         setAlert({message:'',severity:''}),4000)
